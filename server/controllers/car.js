@@ -12,5 +12,18 @@ module.exports = {
     catch (err) {
       res.status(400).send(err)
     }
+  },
+  getCar: async (req, res) => {
+    try {
+      let car = await Car.findOne({
+        where: {id: req.params.id},
+        include: [Photo]
+      })
+
+      res.status(200).send(car)
+    }
+    catch (err) {
+      res.status(400).send(err)
+    }
   }
 }
