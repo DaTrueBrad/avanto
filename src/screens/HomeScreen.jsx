@@ -27,7 +27,23 @@ const HomeScreen = () => {
 
   return (
     <div className='main-page'>
-      <h1>Home</h1>
+      <div className="banner" style={{
+        width: '100vw',
+        height: '100vw',
+        background: `linear-gradient(
+          190deg,
+          rgba(0,0,0,0.7),
+          rgba(0,0,0,0.7)),          
+          url(${ cars.length !== 0 && cars[0].photos[0].url}) cover center center`,
+        backgroundSize: 'cover',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <button className='card-button'>Buy Now</button>
+      </div>
+
       <div className="car-container">
         {carDisplay}
       </div>
