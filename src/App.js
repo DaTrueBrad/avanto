@@ -12,7 +12,7 @@ import { Navigate } from 'react-router-dom';
 function App() {
   const admin = useSelector(state => state.admin)
   const userId = useSelector(state => state.userId)
-   
+  console.log("Admin: ",admin)
   return (
     <div className="App">
       <Header />

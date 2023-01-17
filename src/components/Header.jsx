@@ -5,12 +5,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleMenu = () => setShowMenu(!showMenu);
-  const username = useSelector(state => state.username)
+  const username = useSelector((state) => state.username);
   const logout = () => {
-    dispatch({type: 'LOGOUT'})
-  }
+    dispatch({ type: "LOGOUT" });
+  };
 
   return (
     <header>
@@ -23,18 +23,17 @@ const Header = () => {
             Home
           </button>
         </Link>
-        {username !== ""
-        ? <button className="nav-btn" onClick={logout}>
-          Logout
-        </button>
-        
-        :
-          <Link to="/auth">
-          <button onClick={handleMenu} className="nav-btn">
-            Login
+        {username !== "" ? (
+          <button className="nav-btn" onClick={logout}>
+            Logout
           </button>
-        </Link>
-        }
+        ) : (
+          <Link to="/auth">
+            <button onClick={handleMenu} className="nav-btn">
+              Login
+            </button>
+          </Link>
+        )}
       </nav>
     </header>
   );
